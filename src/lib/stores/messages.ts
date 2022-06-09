@@ -1,0 +1,10 @@
+
+export enum EMessages {
+    INITIALIZE_WALLET,
+    UNLOCK_WALLET,
+    LOCK_WALLET,
+    FETCH_STORAGE_STATE,
+    CLEAR_WALLET,
+    FETCH_STORE,
+    FETCH_WALLET
+}
