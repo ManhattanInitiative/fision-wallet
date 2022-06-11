@@ -35,6 +35,7 @@
     "src/entries/popup/App.tsx",
     "src/lib/views/popup/AuthView.tsx",
     "src/lib/views/popup/AccountView.tsx",
-    "src/lib/views/popup/ReceiveView.tsx"
+    "src/lib/views/popup/ReceiveView.tsx",
+    "src/lib/stores/createRouter.tsx"
   ]
 }

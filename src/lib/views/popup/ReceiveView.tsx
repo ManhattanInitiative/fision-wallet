@@ -29,7 +29,7 @@ const ReceiveView: Component = () => {
   return (
     <>
       <div class="flex items-center justify-between border-y py-2 px-2 shadow-md bg-secondary-2 border-blue-500 w-full">
-        <button onClick={() => router.setRoute("/")}>Go Back</button>
+        <button onClick={() => router.goToRoute("/")}>Go Back</button>
         <div class="flex flex-col items-center">
           <div class="text-sm">Account {walletManager.selectedAccount}</div>
           <div class="text-xs text-white text-opacity-50">

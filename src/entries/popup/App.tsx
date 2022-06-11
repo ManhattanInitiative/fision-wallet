@@ -3,11 +3,9 @@ import wallet from "~/lib/stores/wallet";
 import { createSignal, onMount, Show } from "solid-js";
 import walletManager from "~/lib/stores/wallet";
 import AccountView from "~/lib/views/popup/AccountView";
-import { Route, Routes } from "solid-app-router";
-import { createRouter } from "../../lib/stores/routes";
-import { Dynamic } from "solid-js/web";
 import ReceiveView from "~/lib/views/popup/ReceiveView";
 import SendView from "~/lib/views/popup/SendView";
+import { Router, createRouter } from "~/lib/stores/createRouter";
 
 export const router = createRouter(
   {
@@ -36,7 +34,7 @@ export default function App() {
           when={wallet.isInitialized() && !wallet.isLocked()}
           fallback={AuthView}
         >
-          <Dynamic component={router.currentRoute()} />
+          <Router router={router}></Router>
         </Show>
       </div>
     </main>

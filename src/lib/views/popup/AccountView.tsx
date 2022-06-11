@@ -11,18 +11,6 @@ import wallet from "~/lib/stores/wallet";
 import { BigNumber } from "fuels";
 import { router } from "~/entries/popup/App";
 
-async function fetchBalance(source, { value, refetching }) {
-  // Fetch the data and return a value.
-  //`source` tells you the current value of the source signal;
-  //`value` tells you the last returned value of the fetcher;
-  //`refetching` is true when the fetcher is triggered by calling `refetch()`,
-  // or equal to the optional data passed: `refetch(info)`
-  console.log(walletManager.wallet());
-  const d = await walletManager.wallet()?.getBalances();
-  console.log(d);
-  return d;
-}
-
 const AccountView: Component = () => {
   const [balance, setBalance] = createSignal(BigNumber.from(0));
 
@@ -82,7 +70,9 @@ const AccountView: Component = () => {
         <div class="flex justify-center gap-2 border-y py-2 border-blue-500">
           <button
             onClick={() => {
-              router.setRoute("/send");
+              router.goToRoute("/send", {
+                hello: "World",
+              });
             }}
             class="px-5 py-1 border border-blue-500 rounded-md hover:bg-blue-500 hover:bg-opacity-50"
           >
@@ -90,7 +80,7 @@ const AccountView: Component = () => {
           </button>
           <button
             onClick={() => {
-              router.setRoute("/receive");
+              router.goToRoute("/receive");
             }}
             class="px-5 py-1 border border-blue-500 rounded-md hover:bg-blue-500 hover:bg-opacity-50"
           >

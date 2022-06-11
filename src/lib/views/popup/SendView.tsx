@@ -1,11 +1,19 @@
-import { Component } from "solid-js";
+import { Component, onMount } from "solid-js";
 
 import { router } from "~/entries/popup/App";
 
-const SendView: Component = () => {
+export interface SendViewProps {
+  hello?: string;
+}
+
+const SendView: Component<SendViewProps> = (props) => {
+  onMount(() => {
+    console.log(props.hello);
+  });
+
   return (
     <div class="flex flex-col">
-      <button onClick={() => router.setRoute("/")}>Go Back</button>
+      <button onClick={() => router.goToRoute("/")}>Go Back</button>
       Sorry didn't had time to implement!
     </div>
   );
