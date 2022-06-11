@@ -5,6 +5,8 @@ import { getManifest } from "./src/manifest";
 
 import solidPlugin from 'vite-plugin-solid';
 
+const MANIFEST_VERSION = 2
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
@@ -13,7 +15,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       solidPlugin(),
       webExtension({
-        manifest: getManifest(Number(env.MANIFEST_VERSION)),
+        manifest: getManifest(Number(MANIFEST_VERSION)),
       }),
     ],
     build: {
