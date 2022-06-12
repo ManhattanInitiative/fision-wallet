@@ -4,6 +4,7 @@ specifiers:
   '@samrum/vite-plugin-web-extension': ^1.0.0
   '@sveltejs/vite-plugin-svelte': ^1.0.0-next.41
   '@tsconfig/svelte': ^2.0.1
+  '@types/crypto-js': ^4.1.1
   '@types/download': 8.0.1
   '@types/webextension-polyfill': ^0.8.3
   autoprefixer: ^10.4.7
@@ -35,6 +36,7 @@ devDependencies:
   '@samrum/vite-plugin-web-extension': 1.0.2
   '@sveltejs/vite-plugin-svelte': 1.0.0-next.49_svelte@3.48.0+vite@2.9.12
   '@tsconfig/svelte': 2.0.1
+  '@types/crypto-js': 4.1.1
   '@types/download': 8.0.1
   '@types/webextension-polyfill': 0.8.3
   autoprefixer: 10.4.7_postcss@8.4.14
@@ -596,6 +598,10 @@ packages:
     dependencies:
       '@types/filesystem': 0.0.32
       '@types/har-format': 1.2.8
+    dev: true
+
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
     dev: true
 
   /@types/decompress/4.2.4:

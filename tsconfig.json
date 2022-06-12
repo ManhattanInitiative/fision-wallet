@@ -2,6 +2,7 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
