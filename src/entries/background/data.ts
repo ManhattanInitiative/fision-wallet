@@ -6,7 +6,7 @@ import { EMessages } from '~/lib/stores/messages';
 import { WalletStore } from '~/lib/stores/types';
 import { STORAGE_KEY } from '~/lib/stores/WalletManager';
 import CryptoJS from 'crypto-js';
-import Test from './api';
+import Test from './walletApi';
 
 export const ROOT_PATH = `m/44'/60'/0'/0`
 
@@ -76,7 +76,6 @@ onMessage(EMessages.FETCH_STORE, async ({ data }) => {
     }
 })
 
-const test = new Test()
 
 onMessage(EMessages.UNLOCK_WALLET, async ({ data }) => {
     try {

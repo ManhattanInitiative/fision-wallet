@@ -1,4 +1,5 @@
 
+export const WALLET_STORE_KEY = ""
 
 export interface WalletStore {
     isLocked: boolean,
@@ -7,3 +8,9 @@ export interface WalletStore {
     numberOfAccounts: number,
     selectedAccount: number
 }
+
+export type WalletProvidersRPCs = {
+    id: string
+    url: string,
+    name: string
+}[]
