@@ -7,10 +7,6 @@ export interface SendViewProps {
 }
 
 const SendView: Component<SendViewProps> = (props) => {
-  onMount(() => {
-    console.log(props.hello);
-  });
-
   return (
     <div class="flex flex-col">
       <button onClick={() => router.goToRoute("/")}>Go Back</button>

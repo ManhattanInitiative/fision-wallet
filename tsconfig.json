@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "esnext",
     "useDefineForClassFields": true,
@@ -28,7 +29,7 @@
     "src/**/*.d.ts",
     "src/**/*.ts",
     "src/**/*.js",
-    "src/**/*.svelte",
+    "src/**/*.tsx",
     "src/entries/popup/main.tsx",
     "src/entries/options/main.tsx",
     "src/entries/contentScript/primary/main.tsx",

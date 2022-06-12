@@ -6,6 +6,7 @@ import AccountView from "~/lib/views/popup/AccountView";
 import ReceiveView from "~/lib/views/popup/ReceiveView";
 import SendView from "~/lib/views/popup/SendView";
 import { Router, createRouter } from "~/lib/stores/createRouter";
+import { sendMessage } from "webext-bridge";
 
 export const router = createRouter(
   {
@@ -19,6 +20,8 @@ export const router = createRouter(
 export default function App() {
   onMount(async () => {
     await walletManager.fetchStore();
+
+    await sendMessage("HELLO_WORLD");
   });
 
   return (
