@@ -1,9 +1,9 @@
 {
-  "name": "vite-web-extension",
+  "name": "fision-wallet",
   "version": "1.0.0",
-  "displayName": "Vite Web Extension",
-  "author": "@samrum/vite-plugin-web-extension",
-  "description": "A @samrum/vite-plugin-web-extension web extension",
+  "displayName": "Fision Wallet",
+  "author": "@manhattaninitiative",
+  "description": "Unlock the Fuel network with fision",
   "scripts": {
     "build": "vite build",
     "watch": "vite build --watch",
@@ -12,7 +12,6 @@
     "serve:chrome": "web-ext run -t chromium --start-url \"https://google.com\" --source-dir ./dist/",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
-  "license": "MIT",
   "devDependencies": {
     "@samrum/vite-plugin-web-extension": "^1.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.41",
@@ -35,6 +34,7 @@
     "web-ext": "^6.6.0"
   },
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "fuels": "^0.6.0",
     "webext-bridge": "^5.0.4",
     "webextension-polyfill": "^0.9.0"

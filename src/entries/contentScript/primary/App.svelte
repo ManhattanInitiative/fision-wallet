@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import logo from "~/assets/logo.svg";
 
   const logoImageUrl = new URL(logo, import.meta.url).href;
@@ -28,4 +28,4 @@
     position: absolute;
     top: 7px;
   }
-</style>
+</style> -->

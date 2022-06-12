@@ -1,0 +1,7 @@
+
+
+
+export const STORAGE_KEYS = {
+    WALLET: "FISION_WALLET",
+    RPC_URLS: "FISION_RPC_URLS"
+}
