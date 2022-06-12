@@ -15,9 +15,14 @@ class WalletApi {
     }
 
     @ApiEndpoint("HELLO_WORLD")
-    hello() {
-        console.log("Hello World")
+    fetchWalletState() {
+        // Fetch the state of the wallet, if is locked, unlocked etc.
     }
+
+    registerWallet() { }
+
+    // UNLOCK or LOCK
+    modifyWalletStatus() { }
 }
 
 

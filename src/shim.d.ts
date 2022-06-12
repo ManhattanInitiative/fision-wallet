@@ -1,6 +1,7 @@
 import { EmptyRoot, Wallet } from 'fuels';
 import { ProtocolWithReturn, onMessage } from 'webext-bridge';
 import { EMessages } from '~/lib/stores/messages';
+import WalletApi from './entries/background/walletApi';
 import { WalletStore } from './lib/stores/types';
 
 
@@ -11,7 +12,7 @@ declare module 'webext-bridge' {
         [EMessages.UNLOCK_WALLET]: ProtocolWithReturn<{ passphrase: string }, { secret: string, selectedAccount: number, numberOfAccounts: number, status: boolean }>,
         [EMessages.FETCH_STORAGE_STATE]: ProtocolWithReturn<{}, { status: boolean }>,
         [EMessages.CLEAR_WALLET]: ProtocolWithReturn<{}, { status: boolean }>,
-        [EMessages.FETCH_STORE]: ProtocolWithReturn<{}, WalletStore & { status: boolean }>
+        [EMessages.FETCH_STORE]: ProtocolWithReturn<{}, {}>
     }
 }
 

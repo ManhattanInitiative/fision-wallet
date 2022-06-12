@@ -18,7 +18,9 @@ class ProviderRpcApi {
         return this.data
     }
 
+    addNewRPC() { }
 
+    removeRPC() { }
 }
 
 export default ProviderRpcApi

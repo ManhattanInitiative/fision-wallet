@@ -6,7 +6,7 @@ import {
   createMemo,
   Show,
 } from "solid-js";
-import en_wordlist from "~/lib/helpers/en_wordlist";
+import en_wordlist from "~/lib/constants/en_wordlist";
 import { getMnemonicPhrase } from "~/lib/helpers/wordlistHelper";
 import wallet from "~/lib/stores/wallet";
 import MnemonicShow from "../../components/primitives/MnemonicShow";
