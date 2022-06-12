@@ -3,7 +3,7 @@ import pkg from "../package.json";
 const sharedManifest = {
   content_scripts: [
     {
-      js: ["src/entries/contentScript/primary/main.tsx"],
+      js: ["src/entries/contentScript/primary/main.ts"],
       matches: ["*://*/*"],
     },
   ],
@@ -23,7 +23,7 @@ const sharedManifest = {
     page: "src/entries/options/index.html",
     open_in_tab: true,
   },
-  permissions: ["storage"],
+  permissions: [],
 };
 
 const browserAction = {

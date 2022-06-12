@@ -1,11 +1,8 @@
 import { defineConfig, loadEnv } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 import webExtension from "@samrum/vite-plugin-web-extension";
 import path from "path";
 import { getManifest } from "./src/manifest";
-
-import solidPlugin from 'vite-plugin-solid';
-
-const MANIFEST_VERSION = 2
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -13,15 +10,11 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-      solidPlugin(),
+      svelte(),
       webExtension({
-        manifest: getManifest(Number(MANIFEST_VERSION)),
+        manifest: getManifest(Number(env.MANIFEST_VERSION)),
       }),
     ],
-    build: {
-      target: 'esnext',
-      polyfillDynamicImport: false,
-    },
     resolve: {
       alias: {
         "~": path.resolve(__dirname, "./src"),

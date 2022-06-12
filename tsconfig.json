@@ -1,17 +1,11 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-    "types": ["vite/client"],
-    "noEmit": true,
-    "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
@@ -25,18 +19,5 @@
     "allowJs": true,
     "checkJs": true
   },
-  "include": [
-    "src/**/*.d.ts",
-    "src/**/*.ts",
-    "src/**/*.js",
-    "src/**/*.tsx",
-    "src/entries/popup/main.tsx",
-    "src/entries/options/main.tsx",
-    "src/entries/contentScript/primary/main.tsx",
-    "src/entries/popup/App.tsx",
-    "src/lib/views/popup/AuthView.tsx",
-    "src/lib/views/popup/AccountView.tsx",
-    "src/lib/views/popup/ReceiveView.tsx",
-    "src/lib/stores/createRouter.tsx"
-  ]
+  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
 }
