@@ -1,9 +1,8 @@
-import { ApiEndpoint, ApiManager } from "~/lib/helpers/Api";
+import { ApiEndpoint } from "~/lib/helpers/Api";
 import { EMessages } from '../../lib/stores/messages';
 import { WalletStore } from '../../lib/stores/types';
 
 
-@ApiManager
 class WalletApi {
 
     data: WalletStore = {

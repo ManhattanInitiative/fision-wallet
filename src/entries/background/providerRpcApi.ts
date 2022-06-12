@@ -1,7 +1,6 @@
-import { ApiEndpoint, ApiManager } from "~/lib/helpers/Api";
+import { ApiEndpoint } from "~/lib/helpers/Api";
 import { WalletProvidersRPCs } from '../../lib/stores/types';
 
-@ApiManager
 class ProviderRpcApi {
     data: WalletProvidersRPCs = [
         {
