@@ -1,8 +1,8 @@
 {
-  "name": "fision-wallet-hackaton",
+  "name": "fision-wallet",
   "version": "1.0.0",
-  "displayName": "Fision Wallet for Fuel (Hackaton)",
-  "author": "00vian",
+  "displayName": "Fision Wallet for Fuel Network",
+  "author": "ManhattanInitiative",
   "description": "Access Fuel with Fision",
   "scripts": {
     "build": "vite build",
