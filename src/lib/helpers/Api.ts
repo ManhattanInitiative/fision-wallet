@@ -16,7 +16,9 @@ import { onMessage } from "webext-bridge";
 //         console.log("API manager registered:", constructor.name)
 // }
 
-export function ApiEndpoint(id: string | number) {
+
+
+export function ApiEndpoint(id: string) {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         const method = target[propertyKey];
 

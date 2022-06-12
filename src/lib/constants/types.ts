@@ -1,0 +1,10 @@
+export enum WalletApiMessagesType {
+    REGISTER_WALLET = "REGISTER_WALLET",
+    FETCH_WALLET_STATE = "FETCH_WALLET_STATE",
+    MODIFY_WALLET_STATUS = "MODIFY_WALLET_STATUS",
+    TRANSFER_FUNDS = "TRANSFER_FUNDS"
+}
+
+export enum ProviderRpcApiMessagesType {
+
+}

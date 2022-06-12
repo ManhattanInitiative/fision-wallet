@@ -14,3 +14,6 @@ export type WalletProvidersRPCs = {
     url: string,
     name: string
 }[]
+
+
+
