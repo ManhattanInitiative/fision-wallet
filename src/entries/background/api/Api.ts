@@ -16,11 +16,11 @@ export default class Api<T> {
         }
     }
 
-    async secureLoad(passphrase: string) {
+    async secureLoad(passphrase: string, storageKey = this.storageKey) {
         try {
-            const rawStorageData = await Browser.storage?.local.get(this.storageKey)
+            const rawStorageData = await Browser.storage?.local.get(storageKey)
 
-            this.data = JSON.parse(CryptoJS.AES.decrypt(rawStorageData[this.storageKey], passphrase).toString(CryptoJS.enc.Utf8))
+            this.data = JSON.parse(CryptoJS.AES.decrypt(rawStorageData[storageKey], passphrase).toString(CryptoJS.enc.Utf8))
 
             return {
                 status: 1
@@ -35,10 +35,10 @@ export default class Api<T> {
     }
 
     /* */
-    async secureSave(passphrase: string) {
+    async secureSave(passphrase: string, storageKey = this.storageKey) {
         try {
             await Browser.storage?.local.set({
-                [this.storageKey]: CryptoJS.AES.encrypt(JSON.stringify(this.data), passphrase).toString()
+                [storageKey]: CryptoJS.AES.encrypt(JSON.stringify(this.data), passphrase).toString()
             })
 
             return {
@@ -54,15 +54,15 @@ export default class Api<T> {
     }
 
     /* Save/Load the class state*/
-    async load() {
+    async load(storageKey = this.storageKey) {
         try {
             if (this.encrypted) {
                 throw new Error("This api uses an encryped storage, please use secureLoad to load the state!")
             }
 
-            const rawStorageData = await Browser.storage?.local.get(this.storageKey)
+            const rawStorageData = await Browser.storage?.local.get(storageKey)
 
-            this.data = JSON.parse(rawStorageData[this.storageKey])
+            this.data = JSON.parse(rawStorageData[storageKey])
 
             return {
                 status: 1
@@ -76,14 +76,14 @@ export default class Api<T> {
         }
     }
 
-    async save() {
+    async save(storageKey = this.storageKey) {
         try {
             if (this.encrypted) {
                 throw new Error("This api uses an encryped storage, please use secureSave to save the state!")
             }
 
             await Browser.storage?.local.set({
-                [this.storageKey]: JSON.stringify(this.data)
+                [storageKey]: JSON.stringify(this.data)
             })
 
             return {
