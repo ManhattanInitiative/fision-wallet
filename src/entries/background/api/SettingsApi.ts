@@ -31,9 +31,5 @@ export default class SettingsApi extends Api<SettingsData> {
 
     }
 
-    @ApiEndpoint("WALLET_INITIALIZED")
-    async isInitialized() {
-        return await (await this.load()).status === 1
-    }
 
 }

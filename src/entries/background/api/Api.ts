@@ -53,6 +53,20 @@ export default class Api<T> {
         }
     }
 
+    async hasStorage(storageKey = this.storageKey) {
+        try {
+            const rawStorageData = await Browser.storage?.local.get(storageKey)
+
+            if (rawStorageData !== undefined) {
+                return {
+                    status: 1
+                }
+            }
+        } catch (err) {
+            return { status: 0 }
+        }
+    }
+
     /* Save/Load the class state*/
     async load(storageKey = this.storageKey) {
         try {
