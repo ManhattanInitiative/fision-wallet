@@ -4,9 +4,13 @@ import Api from './Api';
 import type SettingsApi from './SettingsApi';
 
 export interface WalletData {
-    status: "LOCKED" | "UNLOCKED"
+    status: "LOCKED" | "UNLOCKED",
+    secret: string | undefined,
 }
 
+/*
+* TODO:
+*/
 export class WalletStorageCheck extends Api<{}> {
     constructor() {
         super("", false)
@@ -15,7 +19,7 @@ export class WalletStorageCheck extends Api<{}> {
     /*
     * An wallet can be initialized if the settings are set but the wallet secret isn't set
     */
-    @ApiEndpoint("IS_INITIALIZED")
+    @ApiEndpoint(ApiMessages.IS_INITIALIZED)
     async isInitialized() {
         try {
             const settingsStorageState = await this.hasStorage(STORAGE_KEYS.SETTINGS)
@@ -39,7 +43,7 @@ export class WalletStorageCheck extends Api<{}> {
     /*
     * An wallet can be registered if the settings are set and the wallet secret are set too
     */
-    @ApiEndpoint("IS_REGISTERED")
+    @ApiEndpoint(ApiMessages.IS_REGISTERED)
     async isRegistered() {
         try {
             const settingsStorageState = await this.hasStorage(STORAGE_KEYS.SETTINGS)
@@ -64,18 +68,24 @@ export class WalletStorageCheck extends Api<{}> {
 
 export default class WalletApi extends Api<WalletData> {
     settingsApi: SettingsApi
+    walletStorageCheck: WalletStorageCheck
 
-    constructor(settingsApi: SettingsApi) {
+    constructor(settingsApi: SettingsApi, walletStorageCheck: WalletStorageCheck) {
         super(STORAGE_KEYS.WALLET, true, {
-            status: "LOCKED"
+            status: "LOCKED",
+            secret: undefined,
         })
 
+        this.walletStorageCheck = walletStorageCheck;
         this.settingsApi = settingsApi
     }
 
-    async fetchWalletData() { }
+    @ApiEndpoint(ApiMessages.WALLET_DATA)
+    async walletData() { }
 
-    async modifyWalletStatus({ action, passphrase }: { action: "LOCK" | "UNLOCK", passphrase: string }) { }
+    @ApiEndpoint(ApiMessages.MANAGE_STATUS)
+    async manageStatus() { }
 
-    async initializeWallet({ secret, passphrase }: { secret: string, passphrase: string }) { }
+    @ApiEndpoint(ApiMessages.REGISTER_WALLET)
+    async registerWallet({ secret, passphrase }: { secret: string, passphrase: string }) { }
 }

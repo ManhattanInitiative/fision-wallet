@@ -1,7 +1,7 @@
-import { onMessage } from "webext-bridge";
+import { onMessage, ProtocolMap, ProtocolWithReturn, sendMessage } from "webext-bridge";
 
 /** Registers an method with the webext-bridge */
-export function ApiEndpoint(id: string) {
+export function ApiEndpoint(id: ApiMessages) {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         const method = target[propertyKey];
 
@@ -10,7 +10,8 @@ export function ApiEndpoint(id: string) {
         }
 
         if (typeof method === "function") {
-            onMessage(id, method)
+            onMessage(`${id}`, method)
         }
     };
 }
+

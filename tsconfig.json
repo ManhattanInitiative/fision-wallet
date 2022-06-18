@@ -5,6 +5,7 @@
     "experimentalDecorators": true,
     "target": "esnext",
     "useDefineForClassFields": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "resolveJsonModule": true,
     "baseUrl": ".",
