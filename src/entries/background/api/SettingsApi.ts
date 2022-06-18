@@ -9,7 +9,7 @@ export interface SettingsData {
 
 export default class SettingsApi extends Api<SettingsData> {
     constructor() {
-        super(STORAGE_KEYS.SETTINGS, {
+        super(STORAGE_KEYS.SETTINGS, false, {
             rpcUrls: [{
                 id: "localhost",
                 label: "Localhost",
@@ -19,7 +19,7 @@ export default class SettingsApi extends Api<SettingsData> {
     }
 
     @ApiEndpoint("FETCH_SETTINGS")
-    async fetchSettings({ }: {}) {
+    async fetchSettings({ }) {
         try {
 
             return this.data
@@ -29,6 +29,11 @@ export default class SettingsApi extends Api<SettingsData> {
     @ApiEndpoint("ADD_RPC")
     addNewRpc({ label, url }: { label: string, url: string }) {
 
+    }
+
+    @ApiEndpoint("WALLET_INITIALIZED")
+    async isInitialized() {
+        return await (await this.load()).status === 1
     }
 
 }

@@ -8,6 +8,6 @@ import WalletApi from "./api/WalletApi";
 import SettingsApi from "./api/SettingsApi";
 
 const settingsApi = new SettingsApi()
-const walletApi = new WalletApi()
+const walletApi = new WalletApi(settingsApi)
 
 export { walletApi, settingsApi }
